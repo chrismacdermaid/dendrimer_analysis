@@ -38,7 +38,7 @@ proc gofr {arr {molid top} {label mol} {seltext "all"}} {
   puts "Calculating gofr between com and [$sel text]" 
 
   set gofrdata([list com $label]) [measure gofr $wat0 $sel \
-				  selupdate 0 usepbc 1 delta 0.1 rmax 40 first 0 last \
+				  selupdate 0 usepbc 1 delta 0.1 rmax 50 first 0 last \
 				  [expr {[molinfo $molid get numframes] - 1}]]
 
   $sel  delete
@@ -123,14 +123,8 @@ after idle {
     }
     $dend delete
 
-    runme 0 EDH "resname EDH"  
-    runme 0 PIP "resname PIP"  
-    runme 0 CMP "resname CMP"  
-    runme 0 AMP "resname AMP"  
-    runme 0 NH2 "resname NH2"  
-    runme 0 N3  "resname AZZ"
-    runme 0 NH3 "resname AHH"
-    runme 0 ALL "all"
+   runme 0 WAT "resname WAT"
+   runme 0 MOH "resname MOH"
 }
 
 quit

@@ -13,7 +13,7 @@ proc getSASA {{molid top}} {
  array set sasa  {} 
  array set stats {} 
  for {set f 0} {$f < $nframes} {incr f 25} {
-  for {set srad 0} {$srad < 18} {incr srad} {
+  for {set srad 0} {$srad < 20} {incr srad} {
     molinfo $molid set frame $f  
     $sel update
     lappend sasa($srad)\
